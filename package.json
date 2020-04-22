@@ -1,0 +1,33 @@
+{
+  "name": "@animoca/ethereum-contracts-core_library",
+  "version": "0.0.2",
+  "description": "Base dependency for solidity contracts projects",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.outblaze.net:blockchain/contracts/contracts-common.git"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "compile": "./scripts/oz-compile.sh",
+    "test": "./scripts/oz-test.sh",
+    "coverage": "./scripts/coverage.sh",
+    "migrate": "./scripts/migrate.sh"
+  },
+  "author": "Animoca Brands",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "@openzeppelin/contracts": "^2.5.0",
+    "@openzeppelin/test-environment": "^0.1.3",
+    "@openzeppelin/test-helpers": "^0.5.5",
+    "async": "^3.2.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chai-bignumber": "^3.0.0",
+    "mocha": "^7.1.1",
+    "solidity-coverage": "^0.7.4",
+    "truffle": "^5.1.21",
+    "truffle-security": "^1.7.1",
+    "web3-utils": "^1.2.6"
+  }
+}
