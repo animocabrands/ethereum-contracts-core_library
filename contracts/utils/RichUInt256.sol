@@ -1,4 +1,4 @@
-pragma solidity = 0.5.16;
+pragma solidity = 0.6.2;
 
 library RichUInt256 {
 
@@ -54,6 +54,3 @@ library RichUInt256 {
         return string(bstr);
     }
 }
-
-
-
