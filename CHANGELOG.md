@@ -9,6 +9,7 @@
 ### New features
  * Added `MinterRole.sol` and `PauserRole.sol` for retro-compatibility with existing contracts.
  * Added `WhitelistedOperators.sol`.
+ * Added `PayoutWallet.sol`.
 
 ## 0.0.2 (10/04/2020)
 
