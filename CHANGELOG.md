@@ -7,7 +7,8 @@
  * Migration to `@openzeppelin/contracts:3.x`.
 
 ### New features
- * `MinterRole.sol` and `PauserRole.sol` added for retro-compatibility with existing contracts.
+ * Added `MinterRole.sol` and `PauserRole.sol` for retro-compatibility with existing contracts.
+ * Added `WhitelistedOperators.sol`.
 
 ## 0.0.2 (10/04/2020)
 
