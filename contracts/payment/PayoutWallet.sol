@@ -18,7 +18,9 @@ contract PayoutWallet is Ownable
     }
 
     function setPayoutWallet(address payoutWallet) public onlyOwner {
+        require(payoutWallet != address(0), "The payout wallet must not be the zero address");
         require(payoutWallet != address(this), "The payout wallet must not be the contract itself");
+        require(payoutWallet != _payoutWallet, "The payout wallet must be different");
         _payoutWallet = payable(payoutWallet);
         emit PayoutWalletSet(_payoutWallet);
     }
