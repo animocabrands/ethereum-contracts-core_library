@@ -1,4 +1,4 @@
-# Solidity Project Stub
+# Solidity Project Contracts Core Library
 
 This project serves as a base dependency for Solidity-based contract projects by providing common configurations, contacts, scripts, interfaces, constants, and utilities.
 
