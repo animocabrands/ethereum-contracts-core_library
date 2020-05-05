@@ -80,7 +80,7 @@ The Truffle configuration file defines the configuration properties used by the 
 
 #### Truffle Security
 
-The Truffle Security configuration file defines the configuration properties used by the [MythX Security Analysis Truffle plugin](https://www.npmjs.com/package/truffle-security) to provide static analysis for security vulnerabilities during Truffle's contract compilation process. Once this core library project is included as a dependecy of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core/truffle-security.js**
+The Truffle Security configuration file defines the configuration properties used by the [MythX Security Analysis Truffle plugin](https://www.npmjs.com/package/truffle-security) to provide static analysis for security vulnerabilities during Truffle's contract compilation process. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core/truffle-security.js**
 
 
 ### Scripts
