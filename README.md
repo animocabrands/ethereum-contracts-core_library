@@ -9,7 +9,7 @@ This project serves as a base dependency for Solidity-based contract projects by
   * [Installation](#installation)
   * [Usage](#usage)
     - [Solidity Contracts](#solidity-contracts)
-    - [Truffle Migrations](#truffle-migrations)
+    - [Test and Migration Scripts](#test-and-migration-scripts)
     - [Openzeppelin Tests](#openzeppelin-tests)
 - [Configurations](#configurations)
   * [Openzeppelin Test Environment](#openzeppelin-test-environment)
@@ -34,32 +34,16 @@ $ npm install --save @animoca/ethereum-contracts-core_library
 
 #### Solidity Contracts
 
-Import dependency contracts in your Solidity contracts:
+Import dependency contracts into your Solidity contracts as needed:
 
 ```solidity
 import "@animoca/ethereum-contracts-core_library/contracts/{{Contract Group}}/{{Contract}}.sol"
 ```
 
 
-#### Truffle Migrations
+#### Test and Migration Scripts
 
-Require the NodeJS module dependency in your migration scripts:
-
-```javascript
-const { constants } = require('@animoca/ethereum-contracts-core_library');
-```
-
-
-Perform a Truffle migration:
-
-```bash
-$ npm run migrate
-```
-
-
-#### Openzeppelin Tests
-
-Require the NodeJS module dependency in your Openzeppelin tests:
+Require the NodeJS module dependency in your test and migration scripts as needed:
 
 ```javascript
 const { constants, interfaces, shouldSupportInterfaces } = require('@animoca/ethereum-contracts-core_library');
@@ -70,22 +54,24 @@ const { constants, interfaces, shouldSupportInterfaces } = require('@animoca/eth
 
 #### Openzeppelin Test Environment
 
-The Openzeppelin test environment configuration file defines the environment setup for running [Mocha](https://mochajs.org/) + [Chai](https://www.chaijs.com/) based test suites using Openzeppelin's testing framework, which includes a local [ganache blockchain](https://github.com/trufflesuite/ganache-core) with unlocked accounts and tools. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core/test-environment.config.js**
+The Openzeppelin test environment configuration file defines the environment setup for running [Mocha](https://mochajs.org/) + [Chai](https://www.chaijs.com/) based test suites using Openzeppelin's testing framework, which includes a local [ganache blockchain](https://github.com/trufflesuite/ganache-core) with unlocked accounts and tools. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core_library/test-environment.config.js**
 
 
 #### Truffle Config
 
-The Truffle configuration file defines the configuration properties used by the Truffle framework. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core/truffle-config.js**
+The Truffle configuration file defines the configuration properties used by the Truffle framework. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core_library/truffle-config.js**
 
 
 #### Truffle Security
 
-The Truffle Security configuration file defines the configuration properties used by the [MythX Security Analysis Truffle plugin](https://www.npmjs.com/package/truffle-security) to provide static analysis for security vulnerabilities during Truffle's contract compilation process. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core/truffle-security.js**
+The Truffle Security configuration file defines the configuration properties used by the [MythX Security Analysis Truffle plugin](https://www.npmjs.com/package/truffle-security) to provide static analysis for security vulnerabilities during Truffle's contract compilation process. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core_library/truffle-security.js**
 
 
 ### Scripts
 
-+ **oz-compile.sh** - Compiles the Solidity contracts using the Openzeppelin testing framework.
-+ **oz-test.sh** - Compiles and runs the Mocha + Chai based test suites usingOpenzeppelin's testing framework.
+This core library project provides some helpful scripts for the development of your Solidity-based project. These can be found in **node_modules/@animoca/ethereum-contracts-core_library/scripts/**.
+
++ **oz-compile.sh** - Compiles the Solidity contracts using the Openzeppelin CLI.
++ **oz-test.sh** - Compiles and runs the Mocha + Chai based test suites using Openzeppelin's testing framework.
 + **migrate.sh** - Executes the Truffle migration scripts to deploy the contracts on Truffle's Ganache local blockchain.
 + **coverage.sh** - Executes Truffle coverage tests on the Solidity contracts.
