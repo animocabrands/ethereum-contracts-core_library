@@ -53,7 +53,7 @@ const { constants, interfaces, shouldSupportInterfaces } = require('@animoca/eth
 
 #### Openzeppelin Test Environment
 
-The Openzeppelin test environment configuration file defines the environment setup for running [Mocha](https://mochajs.org/) + [Chai](https://www.chaijs.com/) based test suites using Openzeppelin's testing framework, which includes a local [ganache blockchain](https://github.com/trufflesuite/ganache-core) with unlocked accounts and tools. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core_library/test-environment.config.js**
+The Openzeppelin test environment configuration file defines the environment setup for running [Mocha](https://mochajs.org/) + [Chai](https://www.chaijs.com/) based test suites using Openzeppelin's testing framework, which includes a local [Ganache blockchain](https://github.com/trufflesuite/ganache-core) with unlocked accounts and tools. Once this core library project is included as a dependency of your host NodeJS project, the configuration file can be found in **node_modules/@animoca/ethereum-contracts-core_library/test-environment.config.js**
 
 
 #### Truffle Config
