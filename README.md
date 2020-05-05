@@ -10,7 +10,6 @@ This project serves as a base dependency for Solidity-based contract projects by
   * [Usage](#usage)
     - [Solidity Contracts](#solidity-contracts)
     - [Test and Migration Scripts](#test-and-migration-scripts)
-    - [Openzeppelin Tests](#openzeppelin-tests)
 - [Configurations](#configurations)
   * [Openzeppelin Test Environment](#openzeppelin-test-environment)
   * [Truffle Config](#truffle-config)
