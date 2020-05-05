@@ -33,7 +33,7 @@ $ npm install --save @animoca/ethereum-contracts-core_library
 
 #### Solidity Contracts
 
-Import dependency contracts into your Solidity contracts as needed:
+Import dependency contracts into your Solidity contracts and derive as needed:
 
 ```solidity
 import "@animoca/ethereum-contracts-core_library/contracts/{{Contract Group}}/{{Contract}}.sol"
