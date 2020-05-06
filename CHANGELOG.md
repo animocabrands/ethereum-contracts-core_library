@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 (06/05/2020)
+
+### New features
+ * Added `RichString.sol`, `RichBytes32.sol`, `BitsMask.sol`, `UInt256Bits.sol`and `BitsLayoutDecoder.sol` (missing tests).
+ * Added `EnumMap.sol` and `EnumSet.sol` which are based on `openzeppelin`'s `EnumerableMap` and `EnumerableSet`. It is exposing the core `bytes32`-based structure without specialisation. The importer contract is responsible for any types casting.
+
 ## 1.0.0 (03/05/2020)
 
 ### Breaking changes
