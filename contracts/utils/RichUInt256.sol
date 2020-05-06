@@ -12,7 +12,7 @@ library RichUInt256 {
         } else if (base == 16) {
             return toHexString(i);
         } else {
-            revert("Base must be iether 10 or 16");
+            revert("Base must be either 10 or 16");
         }
     }
 
