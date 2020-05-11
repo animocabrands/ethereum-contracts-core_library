@@ -18,15 +18,18 @@ contract MinterRole is AccessControl {
     }
 
     function isMinter(address account) public view returns (bool) {
+        require(account != address(0));
         return hasRole(DEFAULT_ADMIN_ROLE, account);
     }
 
     function addMinter(address account) public onlyMinter {
+        require(!isMinter(account));
         grantRole(DEFAULT_ADMIN_ROLE, account);
         emit MinterAdded(account);
     }
 
     function renounceMinter() public {
+        require(isMinter(_msgSender()));
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit MinterRemoved(_msgSender());
     }

@@ -18,15 +18,18 @@ contract PauserRole is AccessControl {
     }
 
     function isPauser(address account) public view returns (bool) {
+        require(account != address(0));
         return hasRole(DEFAULT_ADMIN_ROLE, account);
     }
 
     function addPauser(address account) public onlyPauser {
+        require(!isPauser(account));
         grantRole(DEFAULT_ADMIN_ROLE, account);
         emit PauserAdded(account);
     }
 
     function renouncePauser() public {
+        require(isPauser(_msgSender()));
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit PauserRemoved(_msgSender());
     }

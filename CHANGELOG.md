@@ -2,6 +2,14 @@
 
 ## 2.0.0 (Unreleased)
 
+### Breaking changes
+ * `MinterRole.sol` public functions will revert if supplied a zero-address target.
+ * `MinterRole.sol` function `addMinter()` will revert if the target has already been granted the minter role.
+ * `MinterRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the minter role.
+ * `PauserRole.sol` public functions will revert if supplied a zero-address target.
+ * `PauserRole.sol` function `addMinter()` will revert if the target has already been granted the pauser role.
+ * `PauserRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the pauser role.
+
 ## 1.1.0 (06/05/2020)
 
 ### New features
