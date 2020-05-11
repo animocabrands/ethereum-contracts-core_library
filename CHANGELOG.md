@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.0.0 (Unreleased)
+
 ## 1.1.0 (06/05/2020)
 
 ### New features
