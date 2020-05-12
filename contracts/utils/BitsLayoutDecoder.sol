@@ -13,7 +13,7 @@ contract BitsLayoutDecoder {
 
     EnumMap.Map private _bitsLayout;
 
-    function getAttribute(uint256 integer, string calldata name) external view returns(uint256) {
+    function getAttribute(uint256 integer, string memory name) public view returns(uint256) {
         uint256 integerPosition = uint256(_bitsLayout.get(name.toBytes32()));
         return integer.extract(UInt256Bits.Position(
             uint8(integerPosition.extract(UInt256Bits.Position(8, 0))),

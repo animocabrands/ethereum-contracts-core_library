@@ -10,6 +10,9 @@
  * `PauserRole.sol` function `addMinter()` will revert if the target has already been granted the pauser role.
  * `PauserRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the pauser role.
 
+### New features
+ * `BitsLayoutDecoder` function `getAttribute` scope visibility changed from `external` to `public` so that internal or derived contract functions are able to call use it.
+
 ## 1.1.0 (06/05/2020)
 
 ### New features
