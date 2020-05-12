@@ -3,15 +3,16 @@
 ## 2.0.0 (Unreleased)
 
 ### Breaking changes
+ * `BitsLayoutDecoder` function `getAttribute` scope visibility changed from `external` to `public` so that internal or derived contract functions are able to call use it.
+
+### Improvements
  * `MinterRole.sol` public functions will revert if supplied a zero-address target.
  * `MinterRole.sol` function `addMinter()` will revert if the target has already been granted the minter role.
  * `MinterRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the minter role.
  * `PauserRole.sol` public functions will revert if supplied a zero-address target.
  * `PauserRole.sol` function `addMinter()` will revert if the target has already been granted the pauser role.
  * `PauserRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the pauser role.
-
-### New features
- * `BitsLayoutDecoder` function `getAttribute` scope visibility changed from `external` to `public` so that internal or derived contract functions are able to call use it.
+ * Reworked implementation of the uint to string conversions in `RichUint256.sol`.
 
 ## 1.1.0 (06/05/2020)
 
