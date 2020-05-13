@@ -17,6 +17,7 @@
 
  ### Bugfixes
   * Fixed an issue with the `BitsLayoutDecoder.sol` function `_updateLayout()` where the bits layout position information wasn't being updated properly for storage into bits layout map.
+  * Fixed an issue with the `UInt256Bits.sol` function `inject()` where the bitmask clearing step wasn't properly clearing the bits.
 
 ## 1.1.0 (06/05/2020)
 

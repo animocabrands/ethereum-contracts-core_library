@@ -36,7 +36,7 @@ library UInt256Bits {
         require(position.index + position.length <= 256, "Integer overflow");
 
         // Clearing bits before injecting the value
-        result = integer | ~(mask << position.index);
+        result = integer & ~(mask << position.index);
 
         result = result | (value << position.index);
     }
