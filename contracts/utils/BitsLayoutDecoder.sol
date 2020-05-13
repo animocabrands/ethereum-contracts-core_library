@@ -27,8 +27,8 @@ contract BitsLayoutDecoder {
         uint256 l = names.length;
         for (uint256 i = 0; i < l; i++) {
             uint256 position = 0;
-            position.inject(positions[i].length, UInt256Bits.Position(8, 0));
-            position.inject(positions[i].index, UInt256Bits.Position(8, 8));
+            position = position.inject(positions[i].length, UInt256Bits.Position(8, 0));
+            position = position.inject(positions[i].index, UInt256Bits.Position(8, 8));
             _bitsLayout.set(names[i].toBytes32(), bytes32(position));
         }
     }

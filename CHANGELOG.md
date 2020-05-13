@@ -15,6 +15,9 @@
  * Reworked implementation of the uint to string conversions in `RichUint256.sol`.
  * Changed the `BitsLayoutDecoder.sol` member field `_bitsLayout` scope visibility from `private` to `internal`.
 
+ ### Bugfixes
+  * Fixed an issue with the `BitsLayoutDecoder.sol` function `_updateLayout()` where the bits layout position information wasn't being updated properly for storage into bits layout map.
+
 ## 1.1.0 (06/05/2020)
 
 ### New features
