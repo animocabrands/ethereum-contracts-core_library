@@ -11,7 +11,7 @@ contract BitsLayoutDecoder {
     using EnumMap for EnumMap.Map;
     using UInt256Bits for uint256;
 
-    EnumMap.Map private _bitsLayout;
+    EnumMap.Map internal _bitsLayout;
 
     function getAttribute(uint256 integer, string memory name) public view returns(uint256) {
         uint256 integerPosition = uint256(_bitsLayout.get(name.toBytes32()));

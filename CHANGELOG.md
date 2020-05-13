@@ -13,6 +13,7 @@
  * `PauserRole.sol` function `addMinter()` will revert if the target has already been granted the pauser role.
  * `PauserRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the pauser role.
  * Reworked implementation of the uint to string conversions in `RichUint256.sol`.
+ * Changed the `BitsLayoutDecoder.sol` member field `_bitsLayout` scope visibility from `private` to `internal`.
 
 ## 1.1.0 (06/05/2020)
 
