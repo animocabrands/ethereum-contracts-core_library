@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (Unreleased)
+## 2.0.0 (19/05/2020)
 
 ### Breaking changes
  * Reorganised the contracts in `utils/types`, following the logic of one contract per conversion function to have fine control on amount of code in the compilation unit. The conversion libraries now only have internal functions, have mocks and some have unit tests.
