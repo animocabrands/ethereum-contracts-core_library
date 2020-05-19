@@ -3,7 +3,9 @@
 ## 2.0.0 (Unreleased)
 
 ### Breaking changes
- * `BitsLayoutDecoder` function `getAttribute` scope visibility changed from `external` to `public` so that internal or derived contract functions are able to call use it.
+ * Reorganised the contracts in `utils/types`, following the logic of one contract per conversion function to have fine control on amount of code in the compilation unit. The conversion libraries now only have internal functions, have mocks and some have unit tests.
+ * Removed `BitsLayoutDecoder`.
+ * Migrated compiler to `solc:0.6.7`.
 
 ### Improvements
  * `MinterRole.sol` public functions will revert if supplied a zero-address target.
