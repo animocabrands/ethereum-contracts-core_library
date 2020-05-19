@@ -25,7 +25,7 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-pragma solidity ^0.6.7;
+pragma solidity ^0.6.8;
 
 /**
  * @dev Library for managing an enumerable variant of Solidity's
@@ -56,17 +56,17 @@ library EnumMap {
     // in bytes32.
 
     struct MapEntry {
-        bytes32 _key;
-        bytes32 _value;
+        bytes32 key;
+        bytes32 value;
     }
 
     struct Map {
         // Storage of map keys and values
-        MapEntry[] _entries;
+        MapEntry[] entries;
 
         // Position of the entry defined by a key in the `entries` array, plus 1
         // because index 0 means a key is not in the map.
-        mapping (bytes32 => uint256) _indexes;
+        mapping (bytes32 => uint256) indexes;
     }
 
     /**
@@ -78,16 +78,16 @@ library EnumMap {
      */
     function set(Map storage map, bytes32 key, bytes32 value) internal returns (bool) {
         // We read and store the key's index to prevent multiple reads from the same storage slot
-        uint256 keyIndex = map._indexes[key];
+        uint256 keyIndex = map.indexes[key];
 
         if (keyIndex == 0) { // Equivalent to !contains(map, key)
-            map._entries.push(MapEntry({ _key: key, _value: value }));
+            map.entries.push(MapEntry({ key: key, value: value }));
             // The entry is stored at length-1, but we add 1 to all indexes
             // and use 0 as a sentinel value
-            map._indexes[key] = map._entries.length;
+            map.indexes[key] = map.entries.length;
             return true;
         } else {
-            map._entries[keyIndex - 1]._value = value;
+            map.entries[keyIndex - 1].value = value;
             return false;
         }
     }
@@ -99,31 +99,31 @@ library EnumMap {
      */
     function remove(Map storage map, bytes32 key) internal returns (bool) {
         // We read and store the key's index to prevent multiple reads from the same storage slot
-        uint256 keyIndex = map._indexes[key];
+        uint256 keyIndex = map.indexes[key];
 
         if (keyIndex != 0) { // Equivalent to contains(map, key)
-            // To delete a key-value pair from the _entries array in O(1), we swap the entry to delete with the last one
+            // To delete a key-value pair from the entries array in O(1), we swap the entry to delete with the last one
             // in the array, and then remove the last entry (sometimes called as 'swap and pop').
             // This modifies the order of the array, as noted in {at}.
 
             uint256 toDeleteIndex = keyIndex - 1;
-            uint256 lastIndex = map._entries.length - 1;
+            uint256 lastIndex = map.entries.length - 1;
 
             // When the entry to delete is the last one, the swap operation is unnecessary. However, since this occurs
             // so rarely, we still do the swap anyway to avoid the gas cost of adding an 'if' statement.
 
-            MapEntry storage lastEntry = map._entries[lastIndex];
+            MapEntry storage lastEntry = map.entries[lastIndex];
 
             // Move the last entry to the index where the entry to delete is
-            map._entries[toDeleteIndex] = lastEntry;
+            map.entries[toDeleteIndex] = lastEntry;
             // Update the index for the moved entry
-            map._indexes[lastEntry._key] = toDeleteIndex + 1; // All indexes are 1-based
+            map.indexes[lastEntry.key] = toDeleteIndex + 1; // All indexes are 1-based
 
             // Delete the slot where the moved entry was stored
-            map._entries.pop();
+            map.entries.pop();
 
             // Delete the index for the deleted slot
-            delete map._indexes[key];
+            delete map.indexes[key];
 
             return true;
         } else {
@@ -135,14 +135,14 @@ library EnumMap {
      * @dev Returns true if the key is in the map. O(1).
      */
     function contains(Map storage map, bytes32 key) internal view returns (bool) {
-        return map._indexes[key] != 0;
+        return map.indexes[key] != 0;
     }
 
     /**
      * @dev Returns the number of key-value pairs in the map. O(1).
      */
     function length(Map storage map) internal view returns (uint256) {
-        return map._entries.length;
+        return map.entries.length;
     }
 
    /**
@@ -156,10 +156,10 @@ library EnumMap {
     * - `index` must be strictly less than {length}.
     */
     function at(Map storage map, uint256 index) internal view returns (bytes32, bytes32) {
-        require(map._entries.length > index, "EnumMap: index out of bounds");
+        require(map.entries.length > index, "EnumMap: index out of bounds");
 
-        MapEntry storage entry = map._entries[index];
-        return (entry._key, entry._value);
+        MapEntry storage entry = map.entries[index];
+        return (entry.key, entry.value);
     }
 
     /**
@@ -170,8 +170,8 @@ library EnumMap {
      * - `key` must be in the map.
      */
     function get(Map storage map, bytes32 key) internal view returns (bytes32) {
-        uint256 keyIndex = map._indexes[key];
+        uint256 keyIndex = map.indexes[key];
         require(keyIndex != 0, "EnumMap: nonexistent key"); // Equivalent to contains(map, key)
-        return map._entries[keyIndex - 1]._value; // All indexes are 1-based
+        return map.entries[keyIndex - 1].value; // All indexes are 1-based
     }
 }

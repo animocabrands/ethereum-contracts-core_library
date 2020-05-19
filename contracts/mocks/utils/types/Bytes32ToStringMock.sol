@@ -1,4 +1,4 @@
-pragma solidity ^0.6.7;
+pragma solidity ^0.6.8;
 
 import "../../../utils/types/Bytes32ToBase32String.sol";
 
