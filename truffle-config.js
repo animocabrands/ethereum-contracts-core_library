@@ -1,7 +1,7 @@
 require('chai').should();
 
 module.exports = {
-    plugins: ['solidity-coverage'],
+    plugins: ['truffle-security', 'solidity-coverage'],
 
     networks: {
         ganache: {
