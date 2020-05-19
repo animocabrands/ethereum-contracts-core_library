@@ -1,7 +1,7 @@
 require('chai').should();
 
 module.exports = {
-    plugins: ['truffle-security', 'solidity-coverage'],
+    plugins: ['solidity-coverage'],
 
     networks: {
         ganache: {
@@ -12,7 +12,7 @@ module.exports = {
     },
     compilers: {
         solc: {
-            version: '0.6.6',
+            version: '0.6.7',
             settings: {
                 optimizer: {
                     enabled: true,

@@ -1,4 +1,4 @@
-pragma solidity ^0.6.6;
+pragma solidity ^0.6.7;
 
 library RichUInt256 {
 
@@ -12,7 +12,7 @@ library RichUInt256 {
         } else if (base == 16) {
             return toHexString(i);
         } else {
-            revert("Base must be either 10 or 16");
+            revert("RichUInt256: toString unsupported base");
         }
     }
 
@@ -53,5 +53,25 @@ library RichUInt256 {
             buffer[uint256(k--)] = byte(uint8(48));
         }
         return string(buffer);
+    }
+}
+
+
+pragma solidity ^0.6.7;
+
+import "../../../utils/types/UInt256ToDecimalString.sol";
+import "../../../utils/types/UInt256ToHexString.sol";
+
+library UInt256ToStringMock {
+
+    using UInt256ToDecimalString for uint256;
+    using UInt256ToHexString for uint256;
+
+    function toDecimalString(uint256 value) external pure returns (string memory result) {
+        result = value.toDecimalString();
+    }
+
+    function toHexString(uint256 value) external pure returns (string memory result) {
+        result = value.toHexString();
     }
 }
