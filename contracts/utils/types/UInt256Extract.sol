@@ -15,7 +15,7 @@ library UInt256Extract {
         uint256 integer,
         uint256 length,
         uint256 index
-    ) internal pure returns(uint256)
+    ) internal pure returns (uint256)
     {
         require(length > 0, "UInt256Extract: length is zero");
         require(index + length <= 256, "UInt256Extract: position out of bond");

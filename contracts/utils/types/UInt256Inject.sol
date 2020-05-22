@@ -17,7 +17,7 @@ library UInt256Inject {
         uint256 value,
         uint256 length,
         uint256 index
-    ) internal pure returns(uint256 result)
+    ) internal pure returns (uint256 result)
     {
         require(length > 0, "UInt256Inject: length is zero");
         require(index + length <= 256, "UInt256Inject: position out of bond");

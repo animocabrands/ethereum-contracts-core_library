@@ -9,7 +9,7 @@ library Bytes32ToBase32String {
      * @param value bytes32 value to convert
      * @return string string convert from given bytes32
      */
-    function toBase32String(bytes32 value) internal pure returns(string memory) {
+    function toBase32String(bytes32 value) internal pure returns (string memory) {
         bytes32 base32Alphabet = 0x6162636465666768696A6B6C6D6E6F707172737475767778797A323334353637;
         uint256 i = uint256(value);
         uint256 k = 52;

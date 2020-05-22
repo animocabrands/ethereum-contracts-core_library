@@ -23,11 +23,11 @@ contract UInt256BitsMock {
         );
     }
 
-    function extract(uint256 integer, uint8 length, uint8 index) external pure returns(uint256) {
+    function extract(uint256 integer, uint8 length, uint8 index) external pure returns (uint256) {
         return integer.extract(length, index);
     }
 
-    function inject(uint256 integer, uint256 value, uint8 length, uint8 index) external pure returns(uint256) {
+    function inject(uint256 integer, uint256 value, uint8 length, uint8 index) external pure returns (uint256) {
         return integer.inject(value, length, index);
     }
 }
