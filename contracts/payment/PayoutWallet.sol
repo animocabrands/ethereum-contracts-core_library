@@ -1,4 +1,6 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.6.8;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
@@ -9,19 +11,19 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  */
 contract PayoutWallet is Ownable
 {
-    event PayoutWalletSet(address payoutWallet);
+    event PayoutWalletSet(address payoutWallet_);
 
-    address payable public _payoutWallet;
+    address payable public payoutWallet;
 
-    constructor(address payoutWallet) internal {
-        setPayoutWallet(payoutWallet);
+    constructor(address payoutWallet_) internal {
+        setPayoutWallet(payoutWallet_);
     }
 
-    function setPayoutWallet(address payoutWallet) public onlyOwner {
-        require(payoutWallet != address(0), "The payout wallet must not be the zero address");
-        require(payoutWallet != address(this), "The payout wallet must not be the contract itself");
-        require(payoutWallet != _payoutWallet, "The payout wallet must be different");
-        _payoutWallet = payable(payoutWallet);
-        emit PayoutWalletSet(_payoutWallet);
+    function setPayoutWallet(address payoutWallet_) public onlyOwner {
+        require(payoutWallet_ != address(0), "The payout wallet must not be the zero address");
+        require(payoutWallet_ != address(this), "The payout wallet must not be the contract itself");
+        require(payoutWallet_ != payoutWallet, "The payout wallet must be different");
+        payoutWallet = payable(payoutWallet_);
+        emit PayoutWalletSet(payoutWallet);
     }
 }
