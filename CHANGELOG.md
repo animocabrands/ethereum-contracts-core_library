@@ -5,6 +5,7 @@
 ### Breaking changes
  * Updated compiler to `solc:0.6.8`.
  * Refactored the type conversion libraries following the logic of one contract per function and moved them to `utils/types`.
+ * Applied naming convention where missing: name must starting with `_` for `private` and `internal` variables and functions *only*.
  * Removed `BitsLayoutDecoder`.
 
 ### Improvements
