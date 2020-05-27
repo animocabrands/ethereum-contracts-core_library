@@ -1,25 +1,19 @@
 # Changelog
 
-## 2.0.0 (19/05/2020)
+## 2.0.0 (27/05/2020)
 
 ### Breaking changes
- * Reorganised the contracts in `utils/types`, following the logic of one contract per conversion function to have fine control on amount of code in the compilation unit. The conversion libraries now only have internal functions, have mocks and some have unit tests.
+ * Updated compiler to `solc:0.6.8`.
+ * Refactored the type conversion libraries following the logic of one contract per function and moved them to `utils/types`.
  * Removed `BitsLayoutDecoder`.
- * Migrated compiler to `solc:0.6.8`.
 
 ### Improvements
- * `MinterRole.sol` public functions will revert if supplied a zero-address target.
- * `MinterRole.sol` function `addMinter()` will revert if the target has already been granted the minter role.
- * `MinterRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the minter role.
- * `PauserRole.sol` public functions will revert if supplied a zero-address target.
- * `PauserRole.sol` function `addMinter()` will revert if the target has already been granted the pauser role.
- * `PauserRole.sol` function `renounceMinter()` will revert if the caller was not previously granted the pauser role.
- * Reworked implementation of the uint to string conversions in `RichUint256.sol`.
- * Changed the `BitsLayoutDecoder.sol` member field `_bitsLayout` scope visibility from `private` to `internal`.
+ * `MinterRole.sol` public functions will revert if supplied a zero-address target. `addMinter()` will revert if the target has already been granted the minter role. `renounceMinter()` will revert if the caller was not previously granted the minter role.
+ * `PauserRole.sol` public functions will revert if supplied a zero-address target. `addMinter()` will revert if the target has already been granted the pauser role. `renounceMinter()` will revert if the caller was not previously granted the pauser role.
+ * Reworked implementation of the `uint256` to `string` conversions in.
 
  ### Bugfixes
-  * Fixed an issue with the `BitsLayoutDecoder.sol` function `_updateLayout()` where the bits layout position information wasn't being updated properly for storage into bits layout map.
-  * Fixed an issue with the `UInt256Bits.sol` function `inject()` where the bitmask clearing step wasn't properly clearing the bits.
+  * Fixed an issue with the `uint256.inject()` function where the bitmask clearing step wasn't properly clearing the bits.
 
 ## 1.1.0 (06/05/2020)
 
