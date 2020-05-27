@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.0 (27/05/2020)
+
+### Breaking changes
+ * Updated compiler to `solc:0.6.8`.
+ * Refactored the type conversion libraries following the logic of one contract per function and moved them to `utils/types`.
+ * Removed `BitsLayoutDecoder`.
+
+### Improvements
+ * `MinterRole.sol` public functions will revert if supplied a zero-address target. `addMinter()` will revert if the target has already been granted the minter role. `renounceMinter()` will revert if the caller was not previously granted the minter role.
+ * `PauserRole.sol` public functions will revert if supplied a zero-address target. `addMinter()` will revert if the target has already been granted the pauser role. `renounceMinter()` will revert if the caller was not previously granted the pauser role.
+ * Reworked implementation of the `uint256` to `string` conversions in.
+
+ ### Bugfixes
+  * Fixed an issue with the `uint256.inject()` function where the bitmask clearing step wasn't properly clearing the bits.
+
 ## 1.1.0 (06/05/2020)
 
 ### New features
