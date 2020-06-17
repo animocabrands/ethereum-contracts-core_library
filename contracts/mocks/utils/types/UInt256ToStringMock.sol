@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.6.8;
+pragma solidity 0.6.8;
 
 import "../../../utils/types/UInt256ToDecimalString.sol";
 import "../../../utils/types/UInt256ToHexString.sol";
