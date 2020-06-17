@@ -1,3 +1,3 @@
 #!/bin/bash
 
-truffle migrate --network ganache
+truffle migrate "$@"

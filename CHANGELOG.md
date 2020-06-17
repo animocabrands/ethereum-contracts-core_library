@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.0.0 (17/06/2020)
+
+### Breaking changes
+ * Contracts compiler version fixed at solidity 0.6.8.
+ * `shouldSupportInterfaces` is no more exposed at module level but inside the `behaviors` object instead.
+ * Updated mocha dependency from version 7 to version 8.
+
+### New features
+ * `behaviors` and `fixtures` object are now exposed at module level.
+ * Added fixtures for wei-based BN comparison with precision tolerance.
+ * Added a `verify` and a `publish` scripts. 
+
+### Improvements
+ * `shouldSupportInterfaces` now works on `this.contract` object.
+
 ## 2.0.0 (27/05/2020)
 
 ### Breaking changes

@@ -2,7 +2,7 @@ function shouldSupportInterfaces(interfaces) {
 
     describe('ERC165 supportsInterface(bytes4)', function () {
         beforeEach(function () {
-            this.contract = this.mock || this.token;
+            this.contract = this.contract || this.mock || this.token;
         });
 
         for (const interface of interfaces) {
@@ -20,4 +20,6 @@ function shouldSupportInterfaces(interfaces) {
     });
 }
 
-module.exports = shouldSupportInterfaces;
+module.exports = {
+    shouldSupportInterfaces
+};
