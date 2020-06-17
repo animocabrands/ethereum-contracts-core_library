@@ -1,3 +1,3 @@
 #!/bin/bash
 
-truffle run coverage
+truffle run coverage "$@"

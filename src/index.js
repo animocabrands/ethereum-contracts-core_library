@@ -1,9 +1,11 @@
 const constants = require('./constants');
 const interfaces = require('./interfaces/ERC165');
-const shouldSupportInterfaces = require('../test/contracts/introspection/SupportsInterface.behavior');
+const behaviors = require('../test/behaviors');
+const fixtures = require('../test/fixtures');
 
 module.exports = {
     constants,
     interfaces,
-    shouldSupportInterfaces
+    fixtures,
+    behaviors,
 }

@@ -1,7 +1,7 @@
 require('chai').should();
 
 module.exports = {
-    plugins: ['truffle-security', 'solidity-coverage'],
+    plugins: ['truffle-security', 'solidity-coverage', 'truffle-plugin-verify'],
 
     networks: {
         ganache: {
@@ -10,6 +10,7 @@ module.exports = {
             port: 7545,
         },
     },
+
     compilers: {
         solc: {
             version: '0.6.8',
@@ -21,4 +22,9 @@ module.exports = {
             }
         }
     }
+
+    // Necessary to use the command `npm run publish`
+    // api_keys: {
+    //     etherscan: 'etherscanAPIKey'
+    // },
 };
