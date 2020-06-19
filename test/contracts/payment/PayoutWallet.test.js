@@ -4,7 +4,7 @@ const { ZeroAddress } = require('../../../src/constants');
 
 const PayoutWallet = contract.fromArtifact('PayoutWalletMock');
 
-describe.only('PayoutWallet', function () {
+describe('PayoutWallet', function () {
     const [
         creator,
         other,
