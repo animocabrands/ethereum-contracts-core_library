@@ -22,7 +22,7 @@ contract StarterRole is AccessControl {
      * Modifier to make a function callable only by accounts with the starter role.
      */
     modifier onlyStarter() {
-        require(isStarter(_msgSender()), "Starter: caller does not have the Starter role");
+        require(isStarter(_msgSender()), "StarterRole: caller does not have the Starter role");
         _;
     }
 
