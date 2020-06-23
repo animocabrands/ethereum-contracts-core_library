@@ -57,8 +57,7 @@ contract PauserRole is AccessControl {
     /**
      * Renounces the granted pauser role.
      */
-    function renouncePauser() public {
-        require(isPauser(_msgSender()), "PauserRole: renounce by a non-pauser");
+    function renouncePauser() public onlyPauser {
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit PauserRemoved(_msgSender());
     }

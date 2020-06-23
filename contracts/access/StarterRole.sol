@@ -57,8 +57,7 @@ contract StarterRole is AccessControl {
     /**
      * Renounces the granted starter role.
      */
-    function renounceStarter() public {
-        require(isStarter(_msgSender()), "StarterRole: renounce by a non-starter");
+    function renounceStarter() public onlyStarter {
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit StarterRmoved(_msgSender());
     }

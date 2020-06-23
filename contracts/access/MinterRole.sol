@@ -57,8 +57,7 @@ contract MinterRole is AccessControl {
     /**
      * Renounces the granted minter role.
      */
-    function renounceMinter() public {
-        require(isMinter(_msgSender()), "MinterRole: renounce by a non-minter");
+    function renounceMinter() public onlyMinter {
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit MinterRemoved(_msgSender());
     }
