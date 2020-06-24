@@ -59,7 +59,7 @@ contract StarterRole is AccessControl {
      */
     function renounceStarter() public onlyStarter {
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
-        emit StarterRmoved(_msgSender());
+        emit StarterRemoved(_msgSender());
     }
 
 }
