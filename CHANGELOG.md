@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.1.0 (03/07/2020)
+
+### New features
+ * Added `Startable.sol` contract module for adding 'started' state management to derived contracts.
+
+### Improvements
+ * Added tests for `PayoutWalet.sol`.
+
 ## 3.0.0 (17/06/2020)
 
 ### Breaking changes
@@ -10,7 +18,7 @@
 ### New features
  * `behaviors` and `fixtures` object are now exposed at module level.
  * Added fixtures for wei-based BN comparison with precision tolerance.
- * Added a `verify` and a `publish` scripts. 
+ * Added a `verify` and a `publish` scripts.
 
 ### Improvements
  * `shouldSupportInterfaces` now works on `this.contract` object.
