@@ -1,6 +1,6 @@
 {
   "name": "@animoca/ethereum-contracts-core_library",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "Base dependency for solidity contracts projects",
   "repository": {
     "type": "git",

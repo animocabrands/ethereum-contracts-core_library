@@ -1,12 +1,12 @@
 # Changelog
 
-## 3.0.1 (UNRELEASED)
-
-### Improvements
- * Added proper tests for `PayoutWalet.sol`.
+## 3.1.0 (03/07/2020)
 
 ### New features
  * Added `Startable.sol` contract module for adding 'started' state management to derived contracts.
+
+### Improvements
+ * Added tests for `PayoutWalet.sol`.
 
 ## 3.0.0 (17/06/2020)
 
