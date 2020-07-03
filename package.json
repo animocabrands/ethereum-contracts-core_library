@@ -13,7 +13,7 @@
     "coverage": "./scripts/coverage.sh",
     "verify": "./scripts/verify.sh",
     "migrate": "./scripts/migrate.sh",
-    "publish": "./scripts/publish.sh"
+    "etherscan": "./scripts/publish.sh"
   },
   "author": "Animoca Brands",
   "license": "MIT",
