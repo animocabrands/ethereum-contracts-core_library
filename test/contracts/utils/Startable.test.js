@@ -23,7 +23,7 @@ describe('Startable', function () {
         it('should fail if calling a function with the `whenStarted` modifier', async function () {
             await expectRevert(
                 this.contract.testWhenStarted(),
-                'Startable: contract has not started');
+                'Startable: not started');
         });
 
         it('should successfully call a function with the `whenNotStarted` modifier', async function () {
@@ -54,7 +54,7 @@ describe('Startable', function () {
         it('should fail if calling a function with the `whenNotStarted` modifier', async function () {
             await expectRevert(
                 this.contract.testWhenNotStarted(),
-                'Startable: contract has started');
+                'Startable: started');
         });
 
         it('should successfully call a function with the `whenStarted` modifier', async function () {
