@@ -1,5 +1,10 @@
 # Changelog
 
+## UNRELEASED
+
+### Improvements
+ * Added tests for `Startable.sol`.
+
 ## 3.1.0 (03/07/2020)
 
 ### New features
