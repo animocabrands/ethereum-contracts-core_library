@@ -23,7 +23,7 @@ contract Startable is Context {
      * Modifier to make a function callable only when the contract has not started.
      */
     modifier whenNotStarted() {
-        require(_startedAt == 0);
+        require(_startedAt == 0, "Startable: started");
         _;
     }
 
@@ -31,7 +31,7 @@ contract Startable is Context {
      * Modifier to make a function callable only when the contract has started.
      */
     modifier whenStarted() {
-        require(_startedAt != 0);
+        require(_startedAt != 0, "Startable: not started");
         _;
     }
 
