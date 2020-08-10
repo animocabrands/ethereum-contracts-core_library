@@ -1,11 +1,11 @@
 # Changelog
 
-## UNRELEASED
+## 3.1.1
 
 ### Improvements
  * Added tests for `Startable.sol`.
 
-## 3.1.0 (03/07/2020)
+## 3.1.0
 
 ### New features
  * Added `Startable.sol` contract module for adding 'started' state management to derived contracts.
@@ -13,7 +13,7 @@
 ### Improvements
  * Added tests for `PayoutWalet.sol`.
 
-## 3.0.0 (17/06/2020)
+## 3.0.0
 
 ### Breaking changes
  * Contracts compiler version fixed at solidity 0.6.8.
@@ -28,7 +28,7 @@
 ### Improvements
  * `shouldSupportInterfaces` now works on `this.contract` object.
 
-## 2.0.0 (27/05/2020)
+## 2.0.0
 
 ### Breaking changes
  * Updated compiler to `solc:0.6.8`.
@@ -44,13 +44,13 @@
  ### Bugfixes
   * Fixed an issue with the `uint256.inject()` function where the bitmask clearing step wasn't properly clearing the bits.
 
-## 1.1.0 (06/05/2020)
+## 1.1.0
 
 ### New features
  * Added `RichString.sol`, `RichBytes32.sol`, `BitsMask.sol`, `UInt256Bits.sol`and `BitsLayoutDecoder.sol` (missing tests).
  * Added `EnumMap.sol` and `EnumSet.sol` which are based on `openzeppelin`'s `EnumerableMap` and `EnumerableSet`. It is exposing the core `bytes32`-based structure without specialisation. The importer contract is responsible for any types casting.
 
-## 1.0.0 (03/05/2020)
+## 1.0.0
 
 ### Breaking changes
  * Migration to `solc:0.6.x`.
@@ -61,7 +61,7 @@
  * Added `WhitelistedOperators.sol`.
  * Added `PayoutWallet.sol`.
 
-## 0.0.2 (10/04/2020)
+## 0.0.2
 
 ### Breaking changes
  * `constants.js` has been moved to `src/constants.js`. The module now exposes the object `constants`.
@@ -77,5 +77,5 @@
 ### Improvements
  * Exported constants are now also classified through a parent object related to the type. For example `BN.Five`, or `Bytes32.Zero`. The previous exports are still available.
 
-## 0.0.1 (02/04/2020)
+## 0.0.1
  * Initial commit. Add dependencies, config files and constants.
