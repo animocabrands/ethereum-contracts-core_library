@@ -4,6 +4,7 @@
 
 ### Improvements
  * Added tests for `Startable.sol`.
+ * `Startable.sol`: All `require()` validations have appropriate error messages set.
 
 ## 3.1.0
 
