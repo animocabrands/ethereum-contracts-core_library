@@ -12,8 +12,8 @@ function shouldSupportInterfaces(interfaces) {
                     (await this.contract.supportsInterface(interface.id)).should.equal(true);
                 });
 
-                it('should use less than 30k gas', async function () {
-                    (await this.contract.supportsInterface.estimateGas(interface.id)).should.be.lte(30000);
+                it('should use less than 25k gas [ @skip-on-coverage ]', async function () {
+                    (await this.contract.supportsInterface.estimateGas(interface.id)).should.be.lte(25000);
                 });
             });
         }
