@@ -60,10 +60,9 @@ library EnumSet {
     struct Set {
         // Storage of set values
         bytes32[] values;
-
         // Position of the value in the `values` array, plus 1 because index 0
         // means a value is not in the set.
-        mapping (bytes32 => uint256) indexes;
+        mapping(bytes32 => uint256) indexes;
     }
 
     /**
@@ -94,7 +93,8 @@ library EnumSet {
         // We read and store the value's index to prevent multiple reads from the same storage slot
         uint256 valueIndex = set.indexes[value];
 
-        if (valueIndex != 0) { // Equivalent to contains(set, value)
+        if (valueIndex != 0) {
+            // Equivalent to contains(set, value)
             // To delete an element from the values array in O(1), we swap the element to delete with the last one in
             // the array, and then remove the last element (sometimes called as 'swap and pop').
             // This modifies the order of the array, as noted in {at}.
@@ -138,16 +138,16 @@ library EnumSet {
         return set.values.length;
     }
 
-   /**
-    * @dev Returns the value stored at position `index` in the set. O(1).
-    *
-    * Note that there are no guarantees on the ordering of values inside the
-    * array, and it may change when more values are added or removed.
-    *
-    * Requirements:
-    *
-    * - `index` must be strictly less than {length}.
-    */
+    /**
+     * @dev Returns the value stored at position `index` in the set. O(1).
+     *
+     * Note that there are no guarantees on the ordering of values inside the
+     * array, and it may change when more values are added or removed.
+     *
+     * Requirements:
+     *
+     * - `index` must be strictly less than {length}.
+     */
     function at(Set storage set, uint256 index) internal view returns (bytes32) {
         require(set.values.length > index, "EnumSet: index out of bounds");
         return set.values[index];

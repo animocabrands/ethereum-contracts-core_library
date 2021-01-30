@@ -5,7 +5,6 @@ pragma solidity 0.6.8;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract WhitelistedOperators is Ownable {
-
     mapping(address => bool) internal _whitelistedOperators;
 
     event WhitelistedOperator(address operator, bool enabled);

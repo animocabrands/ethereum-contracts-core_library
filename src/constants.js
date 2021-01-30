@@ -25,50 +25,67 @@ const NonEmptyByte = '0xFF';
 const ERC165_InterfaceId = interfaces.ERC165.id;
 
 // Bytes4
-const ZeroBytes4 = '0x00000000'
-const NonZeroBytes4 = '0x12345678'
+const ZeroBytes4 = '0x00000000';
+const NonZeroBytes4 = '0x12345678';
 
 // Bytes32
 const ZeroBytes32 = '0x0000000000000000000000000000000000000000000000000000000000000000';
 const NonZeroBytes32 = '0x1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF';
 
 module.exports = {
+  // BigNumber
+  Zero,
+  One,
+  Two,
+  Three,
+  Four,
+  Five,
+  MaxUInt256,
+  MaxInt256,
+  MinInt256,
+  BN: {
+    Zero,
+    One,
+    Two,
+    Three,
+    Four,
+    Five,
+    MaxUInt256,
+    MaxInt256,
+    MinInt256,
+  },
 
-    // BigNumber
-    Zero, One, Two, Three, Four, Five,
-    MaxUInt256, MaxInt256, MinInt256,
-    BN: {
-        Zero, One, Two, Three, Four, Five,
-        MaxUInt256, MaxInt256, MinInt256,
-    },
+  // Address
+  ZeroAddress,
+  EthAddress,
+  Address: {
+    Zero: ZeroAddress,
+    Eth: EthAddress,
+  },
 
-    // Address
-    ZeroAddress, EthAddress,
-    Address: {
-        Zero: ZeroAddress,
-        Eth: EthAddress,
-    },
+  // Byte
+  EmptyByte,
+  NonEmptyByte,
+  Byte: {
+    Empty: EmptyByte,
+    NonEmpty: NonEmptyByte,
+  },
 
-    // Byte
-    EmptyByte, NonEmptyByte,
-    Byte: {
-        Empty: EmptyByte,
-        NonEmpty: NonEmptyByte,
-    },
-
-    // Bytes4
-    ZeroBytes4, NonZeroBytes4,
+  // Bytes4
+  ZeroBytes4,
+  NonZeroBytes4,
+  ERC165_InterfaceId,
+  Bytes4: {
+    Zero: ZeroBytes4,
+    NonZero: NonZeroBytes4,
     ERC165_InterfaceId,
-    Bytes4: {
-        Zero: ZeroBytes4,
-        NonZero: NonZeroBytes4,
-        ERC165_InterfaceId
-    },
+  },
 
-    // Bytes32
-    ZeroBytes32, NonZeroBytes32,
-    Bytes32: {
-        Zero: ZeroBytes32,
-        NonZero: NonZeroBytes32
-    },
+  // Bytes32
+  ZeroBytes32,
+  NonZeroBytes32,
+  Bytes32: {
+    Zero: ZeroBytes32,
+    NonZero: NonZeroBytes32,
+  },
 };

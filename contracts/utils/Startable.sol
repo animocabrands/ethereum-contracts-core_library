@@ -14,7 +14,6 @@ import "@openzeppelin/contracts/GSN/Context.sol";
  * are put in place.
  */
 contract Startable is Context {
-
     event Started(address account);
 
     uint256 private _startedAt;
@@ -38,7 +37,7 @@ contract Startable is Context {
     /**
      * Constructor.
      */
-    constructor () internal {}
+    constructor() internal {}
 
     /**
      * Returns the timestamp when the contract entered the started state.
@@ -56,5 +55,4 @@ contract Startable is Context {
         _startedAt = now;
         emit Started(_msgSender());
     }
-
 }

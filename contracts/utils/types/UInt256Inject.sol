@@ -3,7 +3,6 @@
 pragma solidity 0.6.8;
 
 library UInt256Inject {
-
     /**
      * @dev injects an number value into a uint256
      * @param integer uint256 the base number in which to inject the value.
@@ -17,10 +16,9 @@ library UInt256Inject {
         uint256 value,
         uint256 length,
         uint256 index
-    ) internal pure returns (uint256 result)
-    {
+    ) internal pure returns (uint256 result) {
         require(length > 0, "UInt256Inject: length is zero");
-        require(index + length <= 256, "UInt256Inject: position out of bond");
+        require(index + length <= 256, "UInt256Inject: out of bond");
         uint256 mask = (1 << length) - 1;
         require(value <= mask, "UInt256Inject: value overflow");
 

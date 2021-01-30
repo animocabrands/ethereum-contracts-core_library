@@ -9,8 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
     @dev adds support for a payout wallet
     Note: .
  */
-contract PayoutWallet is Ownable
-{
+contract PayoutWallet is Ownable {
     event PayoutWalletSet(address payoutWallet_);
 
     address payable public payoutWallet;
@@ -20,9 +19,9 @@ contract PayoutWallet is Ownable
     }
 
     function setPayoutWallet(address payoutWallet_) public onlyOwner {
-        require(payoutWallet_ != address(0), "The payout wallet must not be the zero address");
-        require(payoutWallet_ != address(this), "The payout wallet must not be the contract itself");
-        require(payoutWallet_ != payoutWallet, "The payout wallet must be different");
+        require(payoutWallet_ != address(0), "Payout: zero address");
+        require(payoutWallet_ != address(this), "Payout: this contract as payout");
+        require(payoutWallet_ != payoutWallet, "Payout: same payout wallet");
         payoutWallet = payable(payoutWallet_);
         emit PayoutWalletSet(payoutWallet);
     }

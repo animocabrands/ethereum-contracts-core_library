@@ -14,7 +14,6 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
  * pauser role once the modifer is put in place.
  */
 contract PauserRole is AccessControl {
-
     event PauserAdded(address indexed account);
     event PauserRemoved(address indexed account);
 
@@ -22,14 +21,14 @@ contract PauserRole is AccessControl {
      * Modifier to make a function callable only by accounts with the pauser role.
      */
     modifier onlyPauser() {
-        require(isPauser(_msgSender()), "PauserRole: caller does not have the Pauser role");
+        require(isPauser(_msgSender()), "PauserRole: not a Pauser");
         _;
     }
 
     /**
      * Constructor.
      */
-    constructor () internal {
+    constructor() internal {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit PauserAdded(_msgSender());
     }
@@ -40,7 +39,6 @@ contract PauserRole is AccessControl {
      * @return True if the account has been granted the pauser role, false otherwise.
      */
     function isPauser(address account) public view returns (bool) {
-        require(account != address(0), "PauserRole: address zero cannot be pauser");
         return hasRole(DEFAULT_ADMIN_ROLE, account);
     }
 
@@ -49,7 +47,7 @@ contract PauserRole is AccessControl {
      * @param account The account to grant the pauser role to.
      */
     function addPauser(address account) public onlyPauser {
-        require(!isPauser(account), "PauserRole: add an account already pauser");
+        require(!isPauser(account), "PauserRole: already Pauser");
         grantRole(DEFAULT_ADMIN_ROLE, account);
         emit PauserAdded(account);
     }
@@ -61,5 +59,4 @@ contract PauserRole is AccessControl {
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit PauserRemoved(_msgSender());
     }
-
 }
