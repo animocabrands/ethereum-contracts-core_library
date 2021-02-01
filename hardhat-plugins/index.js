@@ -1,6 +1,7 @@
 require('./flatten-all');
 require('./solidity-docgen');
 require('./solidity-coverage');
+require('./import-artifacts');
 require('@nomiclabs/hardhat-truffle5');
 require('./web3-accounts');
 require('hardhat-gas-reporter');
