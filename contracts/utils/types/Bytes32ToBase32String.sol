@@ -3,7 +3,6 @@
 pragma solidity 0.6.8;
 
 library Bytes32ToBase32String {
-
     /**
      * @dev public function to convert bytes32 to string
      * @param value bytes32 value to convert

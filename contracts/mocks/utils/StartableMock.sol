@@ -4,8 +4,7 @@ pragma solidity 0.6.8;
 
 import "../../utils/Startable.sol";
 
-contract StartableMock is Startable   {
-
+contract StartableMock is Startable {
     constructor() public {}
 
     function start() external {
@@ -15,5 +14,4 @@ contract StartableMock is Startable   {
     function testWhenStarted() external view whenStarted {}
 
     function testWhenNotStarted() external view whenNotStarted {}
-
 }
