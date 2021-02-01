@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.0.0
+
+### Breaking changes
+ * Migrated from `@openzeppelin/test-environment` to `hardhat`.
+### New features
+ * `hardhat` plugins for workflow customisation.
+ * Support for `evm_snapshot`-based test fixtures through the function `createFixtureLoader`.
+ * Support for custom events arg names through the functions `expectEventWithParamsOverride` and `expectEventInTransactionWithParamsOverride`.
+ * `Pausable` behavior.
+
+### Improvements
+ * Reason strings optimisation for some `require()` in contracts.
+ * Removed the zero address check in `PauserRole` and `MinterRole`.
+
 ## 3.1.1
 
 ### Improvements

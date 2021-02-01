@@ -1,7 +1,9 @@
-const publicRole = require('../contracts/access/PublicRole.behavior');
-const supportsInterface = require('../contracts/introspection/SupportsInterface.behavior');
+const {shouldBehaveLikePublicRole} = require('../contracts/access/PublicRole.behavior');
+const {shouldBehaveLikePausableContract} = require('../contracts/utils/Pausable.behavior');
+const {shouldSupportInterfaces} = require('../contracts/introspection/SupportsInterface.behavior');
 
 module.exports = {
-    ...publicRole,
-    ...supportsInterface
-}
+  shouldBehaveLikePublicRole,
+  shouldBehaveLikePausableContract,
+  shouldSupportInterfaces,
+};

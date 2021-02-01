@@ -61,7 +61,6 @@ contract EnumMapMock {
         return (uint256(keyAsBytes32), address(uint256(valueAsBytes32)));
     }
 
-
     function get(uint256 key) public view returns (address) {
         return address(uint256(_map.get(bytes32(key))));
     }

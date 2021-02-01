@@ -25,16 +25,17 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-const { accounts, contract } = require('@openzeppelin/test-environment');
-const { BN, expectEvent } = require('@openzeppelin/test-helpers');
-const { expect } = require('chai');
+const {artifacts, accounts} = require('hardhat');
+
+const {BN, expectEvent} = require('@openzeppelin/test-helpers');
+const {expect} = require('chai');
 
 const zip = require('lodash.zip');
 
-const EnumMapMock = contract.fromArtifact('EnumMapMock');
+const EnumMapMock = artifacts.require('EnumMapMock');
 
 describe('EnumMap', function () {
-  const [ accountA, accountB, accountC ] = accounts;
+  const [accountA, accountB, accountC] = accounts;
 
   const keyA = new BN('7891');
   const keyB = new BN('451');
@@ -44,26 +45,29 @@ describe('EnumMap', function () {
     this.map = await EnumMapMock.new();
   });
 
-  async function expectMembersMatch (map, keys, values) {
+  async function expectMembersMatch(map, keys, values) {
     expect(keys.length).to.equal(values.length);
 
-    await Promise.all(keys.map(async key =>
-      expect(await map.contains(key)).to.equal(true)
-    ));
+    await Promise.all(keys.map(async (key) => expect(await map.contains(key)).to.equal(true)));
 
     expect(await map.length()).to.bignumber.equal(keys.length.toString());
 
-    expect(await Promise.all(keys.map(key =>
-      map.get(key)
-    ))).to.have.same.members(values);
+    expect(await Promise.all(keys.map((key) => map.get(key)))).to.have.same.members(values);
 
     // To compare key-value pairs, we zip keys and values, and convert BNs to
     // strings to workaround Chai limitations when dealing with nested arrays
-    expect(await Promise.all([...Array(keys.length).keys()].map(async (index) => {
-      const entry = await map.at(index);
-      return [entry.key.toString(), entry.value];
-    }))).to.have.same.deep.members(
-      zip(keys.map(k => k.toString()), values)
+    expect(
+      await Promise.all(
+        [...Array(keys.length).keys()].map(async (index) => {
+          const entry = await map.at(index);
+          return [entry.key.toString(), entry.value];
+        })
+      )
+    ).to.have.same.deep.members(
+      zip(
+        keys.map((k) => k.toString()),
+        values
+      )
     );
   }
 
@@ -75,7 +79,7 @@ describe('EnumMap', function () {
 
   it('adds a key', async function () {
     const receipt = await this.map.set(keyA, accountA);
-    expectEvent(receipt, 'OperationResult', { result: true });
+    expectEvent(receipt, 'OperationResult', {result: true});
 
     await expectMembersMatch(this.map, [keyA], [accountA]);
   });
@@ -91,8 +95,8 @@ describe('EnumMap', function () {
   it('returns false when adding keys already in the set', async function () {
     await this.map.set(keyA, accountA);
 
-    const receipt = (await this.map.set(keyA, accountA));
-    expectEvent(receipt, 'OperationResult', { result: false });
+    const receipt = await this.map.set(keyA, accountA);
+    expectEvent(receipt, 'OperationResult', {result: false});
 
     await expectMembersMatch(this.map, [keyA], [accountA]);
   });
@@ -109,7 +113,7 @@ describe('EnumMap', function () {
     await this.map.set(keyA, accountA);
 
     const receipt = await this.map.remove(keyA);
-    expectEvent(receipt, 'OperationResult', { result: true });
+    expectEvent(receipt, 'OperationResult', {result: true});
 
     expect(await this.map.contains(keyA)).to.equal(false);
     await expectMembersMatch(this.map, [], []);
@@ -117,7 +121,7 @@ describe('EnumMap', function () {
 
   it('returns false when removing keys not in the set', async function () {
     const receipt = await this.map.remove(keyA);
-    expectEvent(receipt, 'OperationResult', { result: false });
+    expectEvent(receipt, 'OperationResult', {result: false});
 
     expect(await this.map.contains(keyA)).to.equal(false);
   });

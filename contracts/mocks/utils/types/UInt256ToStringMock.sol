@@ -6,7 +6,6 @@ import "../../../utils/types/UInt256ToDecimalString.sol";
 import "../../../utils/types/UInt256ToHexString.sol";
 
 library UInt256ToStringMock {
-
     using UInt256ToDecimalString for uint256;
     using UInt256ToHexString for uint256;
 

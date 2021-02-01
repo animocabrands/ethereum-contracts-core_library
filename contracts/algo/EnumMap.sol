@@ -65,10 +65,9 @@ library EnumMap {
     struct Map {
         // Storage of map keys and values
         MapEntry[] entries;
-
         // Position of the entry defined by a key in the `entries` array, plus 1
         // because index 0 means a key is not in the map.
-        mapping (bytes32 => uint256) indexes;
+        mapping(bytes32 => uint256) indexes;
     }
 
     /**
@@ -78,12 +77,17 @@ library EnumMap {
      * Returns true if the key was added to the map, that is if it was not
      * already present.
      */
-    function set(Map storage map, bytes32 key, bytes32 value) internal returns (bool) {
+    function set(
+        Map storage map,
+        bytes32 key,
+        bytes32 value
+    ) internal returns (bool) {
         // We read and store the key's index to prevent multiple reads from the same storage slot
         uint256 keyIndex = map.indexes[key];
 
-        if (keyIndex == 0) { // Equivalent to !contains(map, key)
-            map.entries.push(MapEntry({ key: key, value: value }));
+        if (keyIndex == 0) {
+            // Equivalent to !contains(map, key)
+            map.entries.push(MapEntry({key: key, value: value}));
             // The entry is stored at length-1, but we add 1 to all indexes
             // and use 0 as a sentinel value
             map.indexes[key] = map.entries.length;
@@ -103,7 +107,8 @@ library EnumMap {
         // We read and store the key's index to prevent multiple reads from the same storage slot
         uint256 keyIndex = map.indexes[key];
 
-        if (keyIndex != 0) { // Equivalent to contains(map, key)
+        if (keyIndex != 0) {
+            // Equivalent to contains(map, key)
             // To delete a key-value pair from the entries array in O(1), we swap the entry to delete with the last one
             // in the array, and then remove the last entry (sometimes called as 'swap and pop').
             // This modifies the order of the array, as noted in {at}.
@@ -147,16 +152,16 @@ library EnumMap {
         return map.entries.length;
     }
 
-   /**
-    * @dev Returns the key-value pair stored at position `index` in the map. O(1).
-    *
-    * Note that there are no guarantees on the ordering of entries inside the
-    * array, and it may change when more entries are added or removed.
-    *
-    * Requirements:
-    *
-    * - `index` must be strictly less than {length}.
-    */
+    /**
+     * @dev Returns the key-value pair stored at position `index` in the map. O(1).
+     *
+     * Note that there are no guarantees on the ordering of entries inside the
+     * array, and it may change when more entries are added or removed.
+     *
+     * Requirements:
+     *
+     * - `index` must be strictly less than {length}.
+     */
     function at(Map storage map, uint256 index) internal view returns (bytes32, bytes32) {
         require(map.entries.length > index, "EnumMap: index out of bounds");
 

@@ -25,29 +25,25 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-const { accounts, contract } = require('@openzeppelin/test-environment');
-const { expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
-const { expect } = require('chai');
+const {artifacts, accounts} = require('hardhat');
+const {expectEvent, expectRevert} = require('@openzeppelin/test-helpers');
+const {expect} = require('chai');
 
-const EnumSetMock = contract.fromArtifact('EnumSetMock');
+const EnumSetMock = artifacts.require('EnumSetMock');
 
 describe('EnumSet', function () {
-  const [ accountA, accountB, accountC ] = accounts;
+  const [accountA, accountB, accountC] = accounts;
 
   beforeEach(async function () {
     this.set = await EnumSetMock.new();
   });
 
-  async function expectMembersMatch (set, values) {
-    await Promise.all(values.map(async account =>
-      expect(await set.contains(account)).to.equal(true)
-    ));
+  async function expectMembersMatch(set, values) {
+    await Promise.all(values.map(async (account) => expect(await set.contains(account)).to.equal(true)));
 
     expect(await set.length()).to.bignumber.equal(values.length.toString());
 
-    expect(await Promise.all([...Array(values.length).keys()].map(index =>
-      set.at(index)
-    ))).to.have.same.members(values);
+    expect(await Promise.all([...Array(values.length).keys()].map((index) => set.at(index)))).to.have.same.members(values);
   }
 
   it('starts empty', async function () {
@@ -58,7 +54,7 @@ describe('EnumSet', function () {
 
   it('adds a value', async function () {
     const receipt = await this.set.add(accountA);
-    expectEvent(receipt, 'OperationResult', { result: true });
+    expectEvent(receipt, 'OperationResult', {result: true});
 
     await expectMembersMatch(this.set, [accountA]);
   });
@@ -74,8 +70,8 @@ describe('EnumSet', function () {
   it('returns false when adding values already in the set', async function () {
     await this.set.add(accountA);
 
-    const receipt = (await this.set.add(accountA));
-    expectEvent(receipt, 'OperationResult', { result: false });
+    const receipt = await this.set.add(accountA);
+    expectEvent(receipt, 'OperationResult', {result: false});
 
     await expectMembersMatch(this.set, [accountA]);
   });
@@ -88,7 +84,7 @@ describe('EnumSet', function () {
     await this.set.add(accountA);
 
     const receipt = await this.set.remove(accountA);
-    expectEvent(receipt, 'OperationResult', { result: true });
+    expectEvent(receipt, 'OperationResult', {result: true});
 
     expect(await this.set.contains(accountA)).to.equal(false);
     await expectMembersMatch(this.set, []);
@@ -96,7 +92,7 @@ describe('EnumSet', function () {
 
   it('returns false when removing values not in the set', async function () {
     const receipt = await this.set.remove(accountA);
-    expectEvent(receipt, 'OperationResult', { result: false });
+    expectEvent(receipt, 'OperationResult', {result: false});
 
     expect(await this.set.contains(accountA)).to.equal(false);
   });

@@ -14,7 +14,6 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
  * once the modifer is put in place.
  */
 contract MinterRole is AccessControl {
-
     event MinterAdded(address indexed account);
     event MinterRemoved(address indexed account);
 
@@ -22,14 +21,14 @@ contract MinterRole is AccessControl {
      * Modifier to make a function callable only by accounts with the minter role.
      */
     modifier onlyMinter() {
-        require(isMinter(_msgSender()), "MinterRole: caller does not have the Minter role");
+        require(isMinter(_msgSender()), "MinterRole: not a Minter");
         _;
     }
 
     /**
      * Constructor.
      */
-    constructor () internal {
+    constructor() internal {
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit MinterAdded(_msgSender());
     }
@@ -40,7 +39,6 @@ contract MinterRole is AccessControl {
      * @return True if the account has been granted the minter role, false otherwise.
      */
     function isMinter(address account) public view returns (bool) {
-        require(account != address(0), "MinterRole: address zero cannot be minter");
         return hasRole(DEFAULT_ADMIN_ROLE, account);
     }
 
@@ -49,7 +47,7 @@ contract MinterRole is AccessControl {
      * @param account The account to grant the minter role to.
      */
     function addMinter(address account) public onlyMinter {
-        require(!isMinter(account), "MinterRole: add an account already minter");
+        require(!isMinter(account), "MinterRole: already Minter");
         grantRole(DEFAULT_ADMIN_ROLE, account);
         emit MinterAdded(account);
     }
@@ -61,5 +59,4 @@ contract MinterRole is AccessControl {
         renounceRole(DEFAULT_ADMIN_ROLE, _msgSender());
         emit MinterRemoved(_msgSender());
     }
-
 }
