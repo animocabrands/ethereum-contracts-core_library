@@ -11,6 +11,6 @@
     "not-rely-on-time": "off",
     "no-empty-blocks": "off",
     "no-inline-assembly": "off",
-    "reason-string": ["error", {"maxLength": 32}]
+    "reason-string": ["error", {"maxLength": 31}]
   }
 }
