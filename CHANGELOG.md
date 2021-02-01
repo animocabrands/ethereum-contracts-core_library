@@ -1,9 +1,17 @@
 # Changelog
 
+## 4.0.1
+
+### Bugfixes
+ * Add missing usage of the `import-artifacts` plugin in the default plugins loading sequence.
+### Improvements
+ * Added a `README` file for the HardHat plugins.
+
 ## 4.0.0
 
 ### Breaking changes
  * Migrated from `@openzeppelin/test-environment` to `hardhat`.
+
 ### New features
  * `hardhat` plugins for workflow customisation.
  * Support for `evm_snapshot`-based test fixtures through the function `createFixtureLoader`.
