@@ -1,9 +1,19 @@
 # Changelog
 
+## 4.0.2
+
+### Bugfixes
+ * Solidity reason string length checks down from 32 to 31 characters.
+
+### Improvements
+ * Added a `prepack` script.
+ * Improved the cleaning scripts.
+
 ## 4.0.1
 
 ### Bugfixes
  * Add missing usage of the `import-artifacts` plugin in the default plugins loading sequence.
+
 ### Improvements
  * Added a `README` file for the HardHat plugins.
 
