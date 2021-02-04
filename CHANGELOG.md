@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.3
+
+### Improvements
+ * Include debug artifacts in git repository and npm package.
+
+
 ## 4.0.2
 
 ### Bugfixes
