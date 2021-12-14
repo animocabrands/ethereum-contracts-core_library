@@ -55,7 +55,7 @@
     "dependencies": {
         "@nomiclabs/hardhat-truffle5": "^2.0.0",
         "@nomiclabs/hardhat-web3": "^2.0.0",
-        "@openzeppelin/contracts": "=3.3.0",
+        "@openzeppelin/contracts": "=4.4.1",
         "@openzeppelin/test-helpers": "git+https://github.com/nataouze/openzeppelin-test-helpers.git#fix_bn_array_event_args",
         "@smartdec/smartcheck": "^2.0.1",
         "chai": "^4.2.0",
